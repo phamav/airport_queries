@@ -148,12 +148,3 @@ void menu4(mysqlpp::Connection myDB) {
       std::cout << std::endl;
   }
 }
-
-void printMenu() {
-    // Function to print the option menu
-    std::cout << "Option. Enter the appropriate number to choose the option: \n";
-    std::cout << "1/ Querry using 1 criteria.\n";
-    std::cout << "2/ Querry using 2 criteria.\n";
-    std::cout << "3/ Querry using COUNT function.\n";
-    std::cout << "4/ Querry using GROUP BY function.\n";
-}
