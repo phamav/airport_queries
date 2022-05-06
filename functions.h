@@ -1,6 +1,7 @@
 // Copyright by Jenn Pham & Nhut Do
 // May 5, 2022
 // Header file for functions.cpp
+
 #define MYSQLPP_MYSQL_HEADERS_BURIED
 #include <mysql++/mysql++.h>
 #ifndef FUNCTIONS_H
