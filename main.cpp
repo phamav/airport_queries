@@ -8,7 +8,6 @@
 #include <iostream>
 
 int main() {
-
   int choice;
   mysqlpp::Connection myDB("cse278", "localhost", "cse278",
           "wVQABsJFQhwNdNbr");

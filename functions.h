@@ -2,10 +2,11 @@
 // May 5, 2022
 // Header file for functions.cpp
 
+#ifndef FUNCTIONS_H_
+#define FUNCTIONS_H_
+
 #define MYSQLPP_MYSQL_HEADERS_BURIED
 #include <mysql++/mysql++.h>
-#ifndef FUNCTIONS_H
-#define FUNCTIONS_H
 
 #include <iostream>
 
@@ -15,4 +16,4 @@ void menu2(mysqlpp::Connection myDB);
 void menu3(mysqlpp::Connection myDB);
 void menu4(mysqlpp::Connection myDB);
 
-#endif
+#endif  // FUNCTIONS_H_

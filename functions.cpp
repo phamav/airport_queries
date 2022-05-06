@@ -100,7 +100,7 @@ void menu2(mysqlpp::Connection myDB) {
 /**
  * @brief Summarizing of airports data using (an) aggregate function(s) with a selection criterion.
  *
- * @param myDB 
+ * @param myDB
  */
 void menu3(mysqlpp::Connection myDB) {
     mysqlpp::Query query = myDB.query();
@@ -173,7 +173,7 @@ void menu4(mysqlpp::Connection myDB) {
  */
 void printMenu() {
     // Function to print the option menu
-    std::cout << "Option. Enter the appropriate number to choose the option: \n";
+    std::cout << "Option. Enter the appropriate number to choose the option:\n";
     std::cout << "1/ Querry using 1 criteria.\n";
     std::cout << "2/ Querry using 2 criteria.\n";
     std::cout << "3/ Querry using COUNT function.\n";
