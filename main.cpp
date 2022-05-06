@@ -1,6 +1,6 @@
 #define MYSQLPP_MYSQL_HEADERS_BURIED
 #include <mysql++/mysql++.h>
-#include <functions.h>
+#include "functions.h"
 #include <iostream>
 
 int main() {
@@ -29,6 +29,8 @@ int main() {
       case 4:
         // menu4(myDB);
         std::cout << "4";
+        break;
+      default:
         break;
     }
     printMenu();
