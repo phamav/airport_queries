@@ -26,6 +26,8 @@ int main() {
       case 4:
         menu4(myDB);
         break;
+      default:
+        break;
     }
     printMenu();
     std::cin >> choice;
