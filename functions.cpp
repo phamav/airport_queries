@@ -20,24 +20,39 @@ void menu1(mysqlpp::Connection myDB) {
 
     // Print the examples of cities.
     std::cout << "Here are sample city names in Germany.  "
-    << "<---- possible input list (used limit 10)" << std::endl;
-    std::cout << "- Bautzen" << std::endl;
-    std::cout << "- Altenburg" << std::endl;
-    std::cout << "- Dessau" << std::endl;
-    std::cout << "- Eisenhuettenstadt" << std::endl;
-    std::cout << "- Suhl" << std::endl;
+    << "<---- possible input list (used limit 5)" << std::endl;
 
+    query << "SELECT City FROM Airports WHERE Country = '"
+    << "Germany" << "' LIMIT 5;";
+
+    query.parse();  // check to ensure query is correct
+    // Run the query and get stored results
+    mysqlpp::StoreQueryResult result = query.store();
+    // Results is a 2D vector of mysqlpp::String objects.
+    // Print the results.
+    for (const auto& row : result) {
+        for (const auto& col : row) {
+            std::cout << col << "\t";
+        }
+        std::cout << std::endl;
+    }
+    // std::cout << "- Bautzen" << std::endl;
+    // std::cout << "- Altenburg" << std::endl;
+    // std::cout << "- Dessau" << std::endl;
+    // std::cout << "- Eisenhuettenstadt" << std::endl;
+    // std::cout << "- Suhl" << std::endl;
+    query = myDB.query();
     // Ask for user input
     std::string city;
     std::cout << "Enter the city name in Germany >>" << std::endl;
     std::cin >> city;
 
     query << "SELECT ID, Name, Code, City, Country FROM Airports WHERE City = '"
-    << city << "' LIMIT 10;";
+    << city << "';";
 
     query.parse();  // check to ensure query is correct
     // Run the query and get stored results
-    mysqlpp::StoreQueryResult result = query.store();
+    result = query.store();
 
     std::cout << "Here are the airports in " << city << std::endl;
     // Results is a 2D vector of mysqlpp::String objects.
@@ -63,27 +78,37 @@ void menu2(mysqlpp::Connection myDB) {
 
     // Print the examples of cities.
     std::cout << "Here are sample city names.  "
-    << "<---- possible input list (used limit 10)" << std::endl;
-    std::cout << "- Berlin" << std::endl;
-    std::cout << "- Toronto" << std::endl;
-    std::cout << "- London" << std::endl;
-    std::cout << "- New York" << std::endl;
-    std::cout << "- Suhl" << std::endl;
+    << "<---- possible input list (used limit 5)" << std::endl;
+
+    query << "SELECT City FROM Airports LIMIT 5;";
+
+    query.parse();  // check to ensure query is correct
+    // Run the query and get stored results
+    mysqlpp::StoreQueryResult result = query.store();
+    // Results is a 2D vector of mysqlpp::String objects.
+    // Print the results.
+    for (const auto& row : result) {
+        for (const auto& col : row) {
+            std::cout << col << "\t";
+        }
+        std::cout << std::endl;
+    }
+    query = myDB.query();
 
     // Ask for user input (2 entries)
     std::string city;
-    std::cout << "Enter the city name >>" << std::endl;
     std::cin >> city;
+
 
     int ID;
     std::cout << "Enter the maximum ID you want >>" << std::endl;
     std::cin >> ID;
     query << "SELECT ID, Name, Code, City, Country FROM Airports WHERE City = '"
-    << city << "' AND ID <= " << ID << " LIMIT 10;";
+    << city << "' AND ID <= " << ID << ";";
 
     query.parse();  // check to ensure query is correct
     // Run the query and get stored results
-    mysqlpp::StoreQueryResult result = query.store();
+    result = query.store();
 
     std::cout << "Here are the airports in " << city << std::endl;
     // Results is a 2D vector of mysqlpp::String objects.
