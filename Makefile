@@ -1,5 +1,5 @@
 main.exe : functions.o main.o
-	g++ functions.o main.o -o main.exe
+	g++ functions.o main.o -o main.exe -lmysqlpp
 main.o : main.cpp functions.h
 	g++ -Wall -c main.cpp
 functions.o : functions.cpp functions.h
