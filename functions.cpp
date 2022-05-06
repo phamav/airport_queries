@@ -108,7 +108,7 @@ void menu3(mysqlpp::Connection myDB) {
     std::cin >> country;
     query << "SELECT Country, City, COUNT(*) FROM Airports GROUP BY City HAVING Country = "
     << country << " LIMIT 10;";
-    
+
     query.parse();
     mysqlpp::StoreQueryResult result = query.store();
 
@@ -121,5 +121,9 @@ void menu3(mysqlpp::Connection myDB) {
         }
         std::cout << std::endl;
     }
+
+void menu4(mysqlpp::Connection myDB) {
+
+}
 
 }
