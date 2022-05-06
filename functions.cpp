@@ -9,8 +9,10 @@
 #include <string>
 
 /**
- * @brief
- *
+ * @brief Querying airports data based on one selection criteria.
+ * The selection criterion (a table column- more columns) should be determined by the programmer in the program. 
+ * 
+ * @param myDB 
  */
 void menu1(mysqlpp::Connection myDB) {
     // Create a query
@@ -48,8 +50,10 @@ void menu1(mysqlpp::Connection myDB) {
 }
 
 /**
- * @brief
- *
+ * @brief Querying airports data based on two selection criteria.
+ * The selection criteria (two table columns) should be determined by the programmer in the program. 
+ * 
+ * @param myDB 
  */
 void menu2(mysqlpp::Connection myDB) {
     // Create a query
@@ -90,16 +94,11 @@ void menu2(mysqlpp::Connection myDB) {
     }
 }
 
-void printMenu() {
-    // Function to print the option menu
-    std::cout << "Option. Enter the appropriate number to choose the option: \n";
-    std::cout << "1/ Querry using 1 criteria.\n";
-    std::cout << "2/ Querry using 2 criteria.\n";
-    std::cout << "3/ Querry using COUNT function.\n";
-    std::cout << "4/ Querry using GROUP BY function.\n";
-    std::cout << "5/ Exit.\n";
-}
-
+/**
+ * @brief Summarizing of airports data using (an) aggregate function(s) with a selection criterion.
+ * 
+ * @param myDB 
+ */
 void menu3(mysqlpp::Connection myDB) {
     mysqlpp::Query query = myDB.query();
     std::cout << "This code will output the number of airports to in each city in the country you input\n";
@@ -124,6 +123,11 @@ void menu3(mysqlpp::Connection myDB) {
     }
 }
 
+/**
+ * @brief Summarizing airport data using grouping.
+ * 
+ * @param myDB 
+ */
 void menu4(mysqlpp::Connection myDB) {
   mysqlpp::Query query = myDB.query();
   std::cout << "This code will output the number of airports to group by the category you input\n";
@@ -147,4 +151,18 @@ void menu4(mysqlpp::Connection myDB) {
       }
       std::cout << std::endl;
   }
+}
+
+/**
+ * @brief Print the Option Menu.
+ * 
+ */
+void printMenu() {
+    // Function to print the option menu
+    std::cout << "Option. Enter the appropriate number to choose the option: \n";
+    std::cout << "1/ Querry using 1 criteria.\n";
+    std::cout << "2/ Querry using 2 criteria.\n";
+    std::cout << "3/ Querry using COUNT function.\n";
+    std::cout << "4/ Querry using GROUP BY function.\n";
+    std::cout << "5/ Exit.\n";
 }
