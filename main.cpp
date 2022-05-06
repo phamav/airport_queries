@@ -16,15 +16,19 @@ int main() {
     switch (choice) {
       case 1:
         menu1(myDB);
+        std::cout << "1/ Querry using 1 criteria." << std::endl;
         break;
       case 2:
         menu2(myDB);
+        std::cout << "2/ Querry using 2 criterias." << std::endl;
         break;
       case 3:
         menu3(myDB);
+        std::cout << "3/ Querry using COUNT function." << std::endl;
         break;
       case 4:
         menu4(myDB);
+        std::cout << "4/ Querry using GROUP BY function." << std::endl;
         break;
       default:
         break;
@@ -34,7 +38,7 @@ int main() {
     std::cin >> choice;
   }
 
-  std::cout << "End of program." << std::endl;
+  std::cout << "EXIT. End of program." << std::endl;
 
   return 0;
 }
