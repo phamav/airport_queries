@@ -10,8 +10,7 @@
 void printMenu();
 void menu1(mysqlpp::Connection myDB);
 void menu2(mysqlpp::Connection myDB);
-void menu3();
-void menu4();
-void menu5();
+void menu3(mysqlpp::Connection myDB);
+void menu4(mysqlpp::Connection myDB);
 
 #endif
