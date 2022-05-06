@@ -156,4 +156,5 @@ void printMenu() {
     std::cout << "2/ Querry using 2 criteria.\n";
     std::cout << "3/ Querry using COUNT function.\n";
     std::cout << "4/ Querry using GROUP BY function.\n";
+    std::cout << "5/ Exit.\n";
 }
