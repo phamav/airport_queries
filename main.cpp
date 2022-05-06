@@ -12,19 +12,23 @@ int main() {
   printMenu();
   std::cin >> choice;
 
-  while (choice < 5 && choice <= 0) {
+  while (choice < 5 && choice > 0) {
     switch (choice) {
       case 1:
-        menu1(myDB);
+        // menu1(myDB);
+        std::cout << "1";
         break;
       case 2:
-        menu2(myDB);
+        // menu2(myDB);
+        std::cout << "2";
         break;
       case 3:
-        menu3(myDB);
+        // menu3(myDB);
+        std::cout << "3";
         break;
       case 4:
-        menu4(myDB);
+        // menu4(myDB);
+        std::cout << "4";
         break;
     }
     printMenu();
