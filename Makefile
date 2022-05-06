@@ -5,6 +5,6 @@ main.o : main.cpp functions.h
 functions.o : functions.cpp functions.h
 	g++ -Wall	-c functions.cpp
 run: main.exe
-	main.exe
+	./main.exe
 clean:
 	rm *.o main.exe

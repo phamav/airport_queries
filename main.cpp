@@ -12,7 +12,7 @@ int main() {
   printMenu();
   std::cin >> choice;
 
-  while (choice < 5 && choice <= 0) {
+  while (choice < 5 && choice > 0) {
     switch (choice) {
       case 1:
         menu1(myDB);
