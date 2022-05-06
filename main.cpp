@@ -1,6 +1,7 @@
-#include <iostream>;
 #define MYSQLPP_MYSQL_HEADERS_BURIED
 #include <mysql++/mysql++.h>
+#include <functions.h>
+#include <iostream>
 
 int main() {
 
@@ -30,7 +31,6 @@ int main() {
     std::cin >> choice;
   }
 
-  std::cout << "End of program."
-
+  std::cout << "End of program." << std::endl;
 
 }
