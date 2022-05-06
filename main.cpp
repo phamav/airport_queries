@@ -15,20 +15,16 @@ int main() {
   while (choice < 5 && choice > 0) {
     switch (choice) {
       case 1:
-        // menu1(myDB);
-        std::cout << "1";
+        menu1(myDB);
         break;
       case 2:
-        // menu2(myDB);
-        std::cout << "2";
+        menu2(myDB);
         break;
       case 3:
-        // menu3(myDB);
-        std::cout << "3";
+        menu3(myDB);
         break;
       case 4:
-        // menu4(myDB);
-        std::cout << "4";
+        menu4(myDB);
         break;
       default:
         break;
