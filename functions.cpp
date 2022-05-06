@@ -4,8 +4,9 @@
 
 #define MYSQLPP_MYSQL_HEADERS_BURIED
 #include <mysql++/mysql++.h>
-#include <functions.h>
+#include "functions.h"
 #include <iostream>
+#include <string>
 
 /**
  * @brief
@@ -100,13 +101,12 @@ void printMenu() {
 
 void menu3(mysqlpp::Connection myDB) {
     mysqlpp::Query query = myDB.query();
-    std::cout << "This code will output the number of airports to
-    in each city in the country you input \(Maximum 10 lines)\n";
+    std::cout << "This code will output the number of airports to in each city in the country you input \n(Maximum 10 lines)\n";
     std::cout << "Example:\nVietnam\nGermany\nUkraine\nSpain\n";
     std::string country;
     std::cin >> country;
     query << "SELECT Country, City, COUNT(*) FROM Airports GROUP BY City HAVING Country =
-    '" << country << "' LIMIT 10";
+    " << country << " LIMIT 10";
 
     query.parse();
     mysqlpp::StoreQueryResult result = query.store();
@@ -120,7 +120,5 @@ void menu3(mysqlpp::Connection myDB) {
         }
         std::cout << std::endl;
     }
-    // All done
-    return 0;
-
+    
 }
