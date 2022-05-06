@@ -17,7 +17,8 @@ void menu1(mysqlpp::Connection myDB) {
     mysqlpp::Query query = myDB.query();
 
     // Print the examples of cities.
-    std::cout << "Here are sample city names in Germany.  <---- possible input list (used limit 5)" << std::endl;
+    std::cout << "Here are sample city names in Germany.  "
+    << "<---- possible input list (used limit 10)" << std::endl;
     std::cout << "- Bautzen" << std::endl;
     std::cout << "- Altenburg" << std::endl;
     std::cout << "- Dessau" << std::endl;
@@ -29,7 +30,8 @@ void menu1(mysqlpp::Connection myDB) {
     std::cout << "Enter the city name in Germany >>" << std::endl;
     std::cin >> city;
 
-    query << "SELECT ID, Name, Code, City, Country FROM Airports WHERE City = '" << city << "' LIMIT 5;";
+    query << "SELECT ID, Name, Code, City, Country FROM Airports WHERE City = '"
+    << city << "' LIMIT 10;";
 
     query.parse();  // check to ensure query is correct
     // Run the query and get stored results
@@ -56,7 +58,8 @@ void menu2(mysqlpp::Connection myDB) {
     mysqlpp::Query query = myDB.query();
 
     // Print the examples of cities.
-    std::cout << "Here are sample city names in Germany.  <---- possible input list (used limit 5)" << std::endl;
+    std::cout << "Here are sample city names in Germany.  "
+    << "<---- possible input list (used limit 10)" << std::endl;
     std::cout << "- Bautzen" << std::endl;
     std::cout << "- Altenburg" << std::endl;
     std::cout << "- Dessau" << std::endl;
@@ -69,10 +72,10 @@ void menu2(mysqlpp::Connection myDB) {
     std::cin >> city;
 
     int ID;
-    std::cout << "Enter the ID range >>" << std::endl;
+    std::cout << "Enter the maximum ID you want >>" << std::endl;
     std::cin >> ID;
     query << "SELECT ID, Name, Code, City, Country FROM Airports WHERE City = '"
-    << city << "' AND ID <= " << ID << " LIMIT 5;";
+    << city << "' AND ID <= " << ID << " LIMIT 10;";
 
     query.parse();  // check to ensure query is correct
     // Run the query and get stored results
@@ -92,8 +95,8 @@ void menu2(mysqlpp::Connection myDB) {
 
 void printMenu() {
     // Function to print the option menu
-    std::cout << "Option. Enter the appropriate number to choose the option: \n";
-    std::cout << "1/ Querry using 1 criteria.\n";
+    std::cout << "Option. Enter the appropriate number to choose the option: ";
+    std::cout << "\n1/ Querry using 1 criteria.\n";
     std::cout << "2/ Querry using 2 criteria.\n";
     std::cout << "3/ Querry using COUNT function.\n";
     std::cout << "4/ Querry using GROUP BY function.\n";
@@ -102,13 +105,18 @@ void printMenu() {
 
 void menu3(mysqlpp::Connection myDB) {
     mysqlpp::Query query = myDB.query();
-    std::cout << "This code will output the number of airports to in each city in the country you input\n";
+    std::cout << "This code will output the number of airports to in each "
+    << "city in the country you input\n";
     std::cout << "(Maximum 10 lines)\n";
+    std::cout << "------\n";
     std::cout << "Example:\nVietnam\nGermany\nUkraine\nSpain\n";
+    std::cout << "------\n";
+
+    std::cout << "Enter the country you want >>" << std::endl;
     std::string country;
     std::cin >> country;
-    query << "SELECT Country, City, COUNT(*) FROM Airports GROUP BY City HAVING Country = '"
-    << country << "' LIMIT 10;";
+    query << "SELECT Country, City, COUNT(*) FROM Airports GROUP BY "
+    << "City HAVING Country = '" << country << "' LIMIT 10;";
 
     query.parse();
     mysqlpp::StoreQueryResult result = query.store();
@@ -126,10 +134,16 @@ void menu3(mysqlpp::Connection myDB) {
 
 void menu4(mysqlpp::Connection myDB) {
   mysqlpp::Query query = myDB.query();
-  std::cout << "This code will output the number of airports to group by the category you input\n";
+  std::cout << "This code will output the number of airports to group by "
+  << "the category you input\n";
   std::cout << "(Maximum 10 lines)\n";
+  std::cout << "Please choose from one of these options. "
+   << "Please type correctly\n";
+  std::cout << "------\n";
   std::cout << "Options:\nCountry\nCode\nLongtitude\nLatitude\nAltitude\n";
   std::cout << "Timezone\nDST\nTz\n";
+  std::cout << "------\n";
+  std::cout << "Enter the category you want: >>" << std::endl;
   std::string category;
   std::cin >> category;
   query << "SELECT " << category << ", COUNT(*) FROM Airports GROUP BY "
@@ -140,7 +154,7 @@ void menu4(mysqlpp::Connection myDB) {
 
   // Results is a 2D vector of mysqlpp::String objects.
   // Print the results.
-  std::cout << category << "\tCOUNT(*)\t" << category << std::endl;
+  std::cout << category << "\tCOUNT(*)\t" << std::endl;
   for (const auto& row : result) {
       for (const auto& col : row) {
           std::cout << col << "\t";

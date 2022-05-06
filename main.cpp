@@ -29,6 +29,7 @@ int main() {
       default:
         break;
     }
+    std::cout << "-------------------------------------------\n";
     printMenu();
     std::cin >> choice;
   }
