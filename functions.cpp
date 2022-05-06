@@ -62,17 +62,17 @@ void menu2(mysqlpp::Connection myDB) {
     mysqlpp::Query query = myDB.query();
 
     // Print the examples of cities.
-    std::cout << "Here are sample city names in Germany.  "
+    std::cout << "Here are sample city names.  "
     << "<---- possible input list (used limit 10)" << std::endl;
-    std::cout << "- Bautzen" << std::endl;
-    std::cout << "- Altenburg" << std::endl;
-    std::cout << "- Dessau" << std::endl;
-    std::cout << "- Eisenhuettenstadt" << std::endl;
+    std::cout << "- Berlin" << std::endl;
+    std::cout << "- Toronto" << std::endl;
+    std::cout << "- London" << std::endl;
+    std::cout << "- New York" << std::endl;
     std::cout << "- Suhl" << std::endl;
 
     // Ask for user input (2 entries)
     std::string city;
-    std::cout << "Enter the city name in Germany >>" << std::endl;
+    std::cout << "Enter the city name >>" << std::endl;
     std::cin >> city;
 
     int ID;
