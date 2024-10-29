@@ -10,7 +10,7 @@
 int main() {
   int choice;
   mysqlpp::Connection myDB("cse278", "localhost", "cse278",
-          "wVQABsJFQhwNdNbr");
+          SECRET_PWD);
 
   printMenu();
   std::cin >> choice;
