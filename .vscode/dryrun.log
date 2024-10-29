@@ -1,7 +1,0 @@
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory `/Users/penguinesee/Documents/CSE 278/hw4_cse278'
-g++ -Wall	-c functions.cpp
-g++ -Wall -c main.cpp
-g++ functions.o main.o -o main.exe -lmysqlpp
-make: Leaving directory `/Users/penguinesee/Documents/CSE 278/hw4_cse278'
- 
